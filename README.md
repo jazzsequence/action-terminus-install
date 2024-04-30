@@ -28,3 +28,7 @@ jobs:
 		os: ubuntu-latest
 	- run: terminus --version
 ```
+
+## Notes
+
+* Adding a step to install PHP is not required _except when using macos-latest_ as the operating system. Since Terminus is a PHP application, it requires PHP to be installed on the system. The `shivammathur/setup-php` action is used in the example above to install PHP. If you are using a different action to install PHP, you can skip this step.
