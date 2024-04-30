@@ -1,0 +1,28 @@
+name: Terminus Installer
+description: Installs the latest Terminus release
+author: pantheon-systems
+branding:
+  icon: terminal
+  color: yellow
+inputs:
+  os:
+    description: "The operating system to install Terminus on"
+    required: false
+    default: "ubuntu-latest"
+    validation:
+      pattern: "^(macos-latest|ubuntu-latest)$"
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        if [[ "${{ inputs.os }}" == "macos-latest" ]]; then
+          echo "☕ Installing Terminus on macOS from Homebrew..."
+          brew install pantheon-systems/external/terminus
+        else
+          echo "💻 Installing Terminus from phar on Linux..."
+          curl -L "https://github.com/pantheon-systems/terminus/releases/latest/download/terminus.phar" -o terminus
+          chmod +x terminus
+          sudo mv terminus /usr/local/bin/
+        fi
+        terminus --version
+      shell: bash

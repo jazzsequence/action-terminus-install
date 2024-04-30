@@ -1,0 +1,16 @@
+name: Test
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install Terminus on *nix
+        uses: ./
+        with:
+          os: ubuntu-latest
+      - name: Install Terminus on macOS
+        uses: ./
+        with:
+          os: macos-latest
