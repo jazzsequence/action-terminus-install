@@ -17,16 +17,16 @@ The operating system to install Terminus on. Default `"ubuntu-latest"`. Currentl
 ```yaml
 jobs:
   build:
-	runs-on: ubuntu-latest
-	steps:
-	- uses: actions/checkout@v4
-	- uses: shivammathur/setup-php@v2
-	  with:
-		php-version: 8.3
-	- uses: pantheon-systems/action-terminus-install@v1
-	  with:
-		os: ubuntu-latest
-	- run: terminus --version
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.3
+    - uses: pantheon-systems/action-terminus-install@v1
+      with:
+        os: ubuntu-latest
+    - run: terminus --version
 ```
 
 ## Notes
